@@ -2,7 +2,7 @@
 class Food{
     constructor(fName,fCalories){
         this.name = fName;
-        this.calories = fCalories;
+        this.calories = Number(fCalories);
     }
 }
 
@@ -23,7 +23,12 @@ document.addEventListener("DOMContentLoaded", function (event) {
         const foodObject = new Food(foodName, calories);
         //push the new object into the array
         foodList.push(foodObject);
-        console.log("sucess");
+        console.log(foodList);
+        total = 0;
+        for( i=0; i < foodList.length; i++){
+            total = total + foodList[i].calories;
+        }
+        document.getElementById("total").value  = total;
     });
 });
 
